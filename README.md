@@ -41,7 +41,7 @@ We transform complex security challenges into clear, actionable solutions:
 Built by founders who understand the unique challenges of growing companies
 
 ### 💰 Transparent Pricing
-No hidden fees, no enterprise markup — just honest security services
+No hidden fees, no enterprise markup  just honest security services
 
 ### ⚡ Fast Turnaround
 Get actionable results in days, not months
@@ -56,7 +56,7 @@ Real security professionals, not just automated scans
 Executive summaries your board will understand
 
 ### 🔒 Confidential
-Your security data stays private — always
+Your security data stays private  always
 
 </td>
 </tr>

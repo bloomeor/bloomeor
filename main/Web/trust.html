@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bloomeor.in</title>
+    <meta name="description"
+        content="Learn about Bloomeor's security practices, data handling, and commitment to confidentiality. SOC-aligned processes built for trust.">
+
+    <link rel="icon" type="image/png" href="../images/logo/Bloomeor-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
+
+        <!-- Analytics -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-S0TYLD299S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-S0TYLD299S');
+    </script>
+    
+
+    <style>
+        .trust-hero {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: clamp(8rem, 15vh, 12rem);
+        }
+
+        .trust-hero h1 {
+            margin-bottom: var(--space-6);
+        }
+
+        .trust-hero .lead {
+            font-size: var(--text-lg);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin: 0 auto var(--space-10);
+        }
+
+        .section-header h2 {
+            margin-bottom: var(--space-4);
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .principle-card {
+            padding: var(--space-8);
+            border-left: 3px solid var(--accent-primary);
+        }
+
+        .principle-card h3 {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-3);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .principle-icon {
+            font-size: 1.5rem;
+        }
+
+        .practices-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .practice-item {
+            display: flex;
+            gap: var(--space-6);
+            padding: var(--space-6) 0;
+            border-bottom: 1px solid var(--border-default);
+        }
+
+        .practice-item:last-child {
+            border-bottom: none;
+        }
+
+        .practice-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: var(--radius-lg);
+            font-size: 1.5rem;
+        }
+
+        .practice-content h4 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-2);
+            color: var(--text-primary);
+        }
+
+        .practice-content p {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .commitment-box {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-10);
+            text-align: center;
+            margin: var(--space-16) auto;
+            max-width: 700px;
+        }
+
+        .commitment-box h2 {
+            margin-bottom: var(--space-4);
+        }
+
+        .commitment-box p {
+            margin-bottom: var(--space-6);
+            font-size: var(--text-lg);
+        }
+
+        .certifications {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-8);
+            flex-wrap: wrap;
+            margin-top: var(--space-8);
+        }
+
+        .cert-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-4) var(--space-6);
+            background: var(--surface-primary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+        }
+
+        .cert-badge span:first-child {
+            font-size: 2rem;
+        }
+
+        .cert-badge span:last-child {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+        }
+
+        .disclosure-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: var(--space-10);
+            background: var(--surface-overlay);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-xl);
+        }
+
+        .disclosure-section h3 {
+            margin-bottom: var(--space-4);
+        }
+
+        .disclosure-section p {
+            margin-bottom: var(--space-4);
+            line-height: 1.7;
+        }
+
+        .disclosure-section a {
+            color: var(--accent-primary);
+        }
+
+        .disclosure-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="../../index.html" class="logo">
+                    <img src="../images/logo/Bloomeor-logo.png" alt="Bloomeor" width="42" height="42">
+                    <span>Bloomeor</span>
+                </a>
+                <nav class="nav">
+                    <a href="../../index.html#pricing" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="login.html" class="btn btn-ghost">Login</a>
+                    <a href="signup.html" class="btn btn-primary">Start Free</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="section trust-hero">
+            <h1>Trust & Security</h1>
+            <p class="lead">
+                We help companies find security vulnerabilities. That means we handle sensitive information
+                every day. Here's how we protect it — and you.
+            </p>
+        </section>
+
+        <!-- CORE PRINCIPLES -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Our Security Principles</h2>
+                    <p>These aren't marketing claims. They're operational commitments we measure ourselves against.</p>
+                </div>
+
+                <div class="principles-grid">
+
+                    <div class="card principle-card">
+                        <h3><span class="principle-icon">🔒</span> Confidential by Default</h3>
+                        <p>
+                            Your data, findings, and business context are never shared, sold, or used for
+                            marketing purposes. Period. We treat every client engagement as confidential
+                            unless explicitly agreed otherwise.
+                        </p>
+                    </div>
+
+                    <div class="card principle-card">
+                        <h3><span class="principle-icon">🗑️</span> Minimal Data Retention</h3>
+                        <p>
+                            We only keep data as long as needed to serve you. Assessment data is deleted
+                            90 days after project completion unless you request otherwise. We don't hoard
+                            information "just in case."
+                        </p>
+                    </div>
+
+                    <div class="card principle-card">
+                        <h3><span class="principle-icon">🔐</span> Encryption Everywhere</h3>
+                        <p>
+                            All data is encrypted in transit (TLS 1.3) and at rest (AES-256).
+                            Communications, reports, and findings are protected at every stage.
+                        </p>
+                    </div>
+
+                    <div class="card principle-card">
+                        <h3><span class="principle-icon">👁️</span> Need-to-Know Access</h3>
+                        <p>
+                            Only team members directly working on your engagement have access to your data.
+                            We use role-based access controls and audit logs for all sensitive operations.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PRACTICES -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>How We Protect Your Data</h2>
+                    <p>Specific practices, not vague promises.</p>
+                </div>
+
+                <div class="practices-list">
+
+                    <div class="practice-item">
+                        <div class="practice-icon">🖥️</div>
+                        <div class="practice-content">
+                            <h4>Secure Infrastructure</h4>
+                            <p>
+                                Our systems run on hardened cloud infrastructure with automated security patching,
+                                network segmentation, and continuous monitoring. We practice what we preach.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="practice-item">
+                        <div class="practice-icon">🔑</div>
+                        <div class="practice-content">
+                            <h4>Strong Authentication</h4>
+                            <p>
+                                All team members use hardware security keys (YubiKey) for authentication.
+                                No passwords, no SMS codes — only phishing-resistant authentication.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="practice-item">
+                        <div class="practice-icon">📋</div>
+                        <div class="practice-content">
+                            <h4>Background-Checked Team</h4>
+                            <p>
+                                Every team member goes through background verification before handling client data.
+                                We take personnel security as seriously as technical security.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="practice-item">
+                        <div class="practice-icon">📜</div>
+                        <div class="practice-content">
+                            <h4>NDA by Default</h4>
+                            <p>
+                                Every engagement includes a mutual NDA. Your findings, vulnerabilities, and
+                                business context are legally protected. We never reference clients without explicit
+                                permission.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="practice-item">
+                        <div class="practice-icon">🗂️</div>
+                        <div class="practice-content">
+                            <h4>Secure Report Delivery</h4>
+                            <p>
+                                Reports are delivered via encrypted channels with time-limited access links.
+                                No sensitive findings in email bodies — ever.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="practice-item">
+                        <div class="practice-icon">🧪</div>
+                        <div class="practice-content">
+                            <h4>Isolated Testing Environments</h4>
+                            <p>
+                                When we conduct assessments, we use isolated environments and secure VPNs.
+                                Client data never touches shared infrastructure.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPLIANCE ALIGNMENT -->
+        <section class="section">
+            <div class="container">
+                <div class="commitment-box">
+                    <h2>SOC 2 Aligned Practices</h2>
+                    <p>
+                        Our internal processes are designed to meet SOC 2 Type II requirements.
+                        While we're not yet certified (we're transparent about that), we follow
+                        the same controls we help our clients implement.
+                    </p>
+
+                    <div class="certifications">
+                        <div class="cert-badge">
+                            <span>🛡️</span>
+                            <span>SOC 2 Aligned</span>
+                        </div>
+                        <div class="cert-badge">
+                            <span>🔒</span>
+                            <span>TLS 1.3</span>
+                        </div>
+                        <div class="cert-badge">
+                            <span>🔐</span>
+                            <span>AES-256</span>
+                        </div>
+                        <div class="cert-badge">
+                            <span>🔑</span>
+                            <span>Hardware Keys</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESPONSIBLE DISCLOSURE -->
+        <section class="section">
+            <div class="container">
+                <div class="disclosure-section">
+                    <h3>🐛 Responsible Disclosure</h3>
+                    <p>
+                        Found a security issue in our systems? We appreciate responsible disclosure
+                        and take all reports seriously.
+                    </p>
+                    <p>
+                        <strong>How to report:</strong> Email security findings to
+                        <a href="mailto:security@Bloomeor.in">security@Bloomeor.in</a> with details
+                        of the vulnerability. We'll acknowledge within 24 hours and work with you
+                        on remediation.
+                    </p>
+                    <p>
+                        <strong>What we commit to:</strong>
+                    </p>
+                    <ul style="color: var(--text-secondary); padding-left: var(--space-6); line-height: 1.8;">
+                        <li>Acknowledge your report within 24 hours</li>
+                        <li>Provide regular updates on remediation progress</li>
+                        <li>Credit you publicly (if you wish) once fixed</li>
+                        <li>Never take legal action against good-faith researchers</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section">
+            <div class="container">
+                <div class="commitment-box" style="border-color: var(--border-default);">
+                    <h2>Questions About Our Security?</h2>
+                    <p>
+                        We're happy to answer questions about how we handle your data.
+                        Transparency builds trust.
+                    </p>
+                    <a href="contact.html" class="btn btn-primary btn-lg">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../../index.html" class="logo">
+                        <img src="../images/logo/Bloomeor-logo.png" alt="Bloomeor" width="42" height="42">
+                        <span>Bloomeor</span>
+                    </a>
+                    <p>Security clarity for growing startups.</p>
+                    <div class="footer-contact">
+                        📧 Bloomeor.in@gmail.com<br>
+                        📞 +91 63618 97434
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <div class="footer-links">
+                        <a href="quick-check.html" class="footer-link">Quick Assessment</a>
+                        <a href="monitoring.html" class="footer-link">Continuous Monitoring</a>
+                        <a href="advisory.html" class="footer-link">Security Advisory</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html" class="footer-link">About</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                        <a href="trust.html" class="footer-link">Trust & Security</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Trust</h4>
+                    <div class="footer-links">
+                        <a href="trust.html" class="footer-link">🔒 Confidential by default</a>
+                        <a href="trust.html" class="footer-link">🛡 SOC-aligned practices</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 Bloomeor.in · All rights reserved</div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

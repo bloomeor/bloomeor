@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Privacy Policy - Bloomeor.in</title>
+    <meta name="description"
+        content="Bloomeor's privacy policy outlining how we collect, use, protect, and manage your personal information and data.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/logo/Bloomeor-logo.png">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Design System -->
+    <link rel="stylesheet" href="css/design-system.css">
+
+      <!-- Analytics -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-S0TYLD299S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-S0TYLD299S');
+    </script>
+    
+
+    <style>
+        /* ========== HERO SECTION ========== */
+        .policy-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #E8EFF9 0%, #E4EBF5 100%);
+            padding: clamp(10rem, 18vh, 14rem) 0 var(--space-12);
+            text-align: center;
+        }
+
+        .policy-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(72, 187, 120, 0.1) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .policy-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(74, 144, 217, 0.1) 0%, transparent 70%);
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        [data-theme="dark"] .policy-hero {
+            background: linear-gradient(180deg, #151B22 0%, #0F1419 100%);
+        }
+
+        .policy-hero h1 {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: var(--space-4);
+            color: #2D3748;
+            letter-spacing: -0.02em;
+        }
+
+        [data-theme="dark"] .policy-hero h1 {
+            color: #E2E8F0;
+        }
+
+        .policy-hero p {
+            position: relative;
+            z-index: 1;
+            font-size: var(--text-lg);
+            max-width: 600px;
+            margin: 0 auto var(--space-6);
+            color: var(--text-secondary);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            background: var(--bg-base);
+            border-radius: var(--radius-full);
+            box-shadow: var(--neu-raised-sm);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        /* ========== POLICY CONTENT ========== */
+        .policy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .policy-section {
+            background: #E4EBF5;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 8px 8px 16px rgba(163, 177, 198, 0.6),
+                -8px -8px 16px rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        [data-theme="dark"] .policy-section {
+            background: #1A202C;
+            box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4),
+                -8px -8px 16px rgba(45, 55, 72, 0.2);
+        }
+
+        .policy-section:hover {
+            transform: translateY(-4px);
+        }
+
+        .policy-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2D3748;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] .policy-section h2 {
+            color: #E2E8F0;
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .section-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(74, 144, 217, 0.15) 0%, rgba(72, 187, 120, 0.15) 100%);
+            border-radius: var(--radius-lg);
+            font-size: 1.1rem;
+        }
+
+        .policy-section h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #2D3748;
+        }
+
+        [data-theme="dark"] .policy-section h3 {
+            color: #E2E8F0;
+        }
+
+        .policy-section p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: #4A5568;
+        }
+
+        [data-theme="dark"] .policy-section p {
+            color: #A0AEC0;
+        }
+
+        .policy-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: var(--space-4);
+        }
+
+        .policy-section ul li {
+            padding: 0.75rem 1rem;
+            padding-left: 2.5rem;
+            position: relative;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: #4A5568;
+            transition: background 0.2s ease;
+        }
+
+        [data-theme="dark"] .policy-section ul li {
+            background: rgba(45, 55, 72, 0.5);
+            color: #CBD5E0;
+        }
+
+        .policy-section ul li:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        [data-theme="dark"] .policy-section ul li:hover {
+            background: rgba(45, 55, 72, 0.8);
+        }
+
+        .policy-section ul li::before {
+            content: '✓';
+            position: absolute;
+            left: var(--space-4);
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.1) 0%, rgba(74, 144, 217, 0.1) 100%);
+            border: 1px solid var(--success);
+            border-radius: var(--radius-xl);
+            padding: var(--space-5);
+            margin: var(--space-6) 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: var(--text-sm);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-2);
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        [data-theme="dark"] .contact-box {
+            background: rgba(45, 55, 72, 0.5);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3) 0;
+            border-bottom: 1px solid var(--border-default);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-base);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--neu-raised-sm);
+            font-size: 0.9rem;
+        }
+
+        .contact-details {
+            flex: 1;
+        }
+
+        .contact-details strong {
+            display: block;
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .contact-details span {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+        }
+
+        .last-updated {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+            margin-top: var(--space-12);
+            padding-top: var(--space-8);
+            border-top: 1px solid var(--border-default);
+        }
+
+        /* ========== MOBILE NAV ========== */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: var(--space-2);
+            z-index: calc(var(--z-fixed) + 2);
+        }
+
+        .hamburger-icon {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(228, 235, 245, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: calc(var(--z-fixed) + 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-6);
+            transform: translateY(-100%);
+            visibility: hidden;
+            transition: transform 0.5s ease, visibility 0.5s;
+        }
+
+        [data-theme="dark"] .mobile-nav-overlay {
+            background: rgba(15, 20, 25, 0.98);
+        }
+
+        .mobile-nav-overlay.active {
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .mobile-nav-link {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--accent-primary);
+        }
+
+        /* ========== THEME TOGGLE ========== */
+        .theme-toggle-container {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-3);
+            background: var(--bg-base);
+            border-radius: var(--radius-full);
+            box-shadow: var(--neu-raised-sm);
+        }
+
+        .theme-label {
+            font-size: var(--text-xs);
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle {
+            position: relative;
+            width: 48px;
+            height: 24px;
+            padding: 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .theme-toggle-track {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-surface);
+            border-radius: var(--radius-full);
+            box-shadow: var(--neu-inset);
+            position: relative;
+        }
+
+        .theme-toggle-sun,
+        .theme-toggle-moon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .theme-toggle-sun {
+            left: 6px;
+            opacity: 1;
+        }
+
+        .theme-toggle-moon {
+            right: 6px;
+            opacity: 0.4;
+        }
+
+        .theme-toggle-thumb {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 18px;
+            height: 18px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-thumb {
+            transform: translateX(24px);
+        }
+
+        [data-theme="dark"] .theme-toggle-sun {
+            opacity: 0.4;
+        }
+
+        [data-theme="dark"] .theme-toggle-moon {
+            opacity: 1;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .header-actions {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .policy-section {
+                padding: var(--space-6);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="../../index.html" class="logo">
+                    <img src="../images/logo/Bloomeor-logo.png" alt="Bloomeor" width="42" height="42">
+                    <span>Bloomeor</span>
+                </a>
+
+                <nav class="nav">
+                    <a href="../../index.html#pricing" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="login.html" class="btn btn-ghost">Login</a>
+                    <a href="signup.html" class="btn btn-primary">Start Free</a>
+                </div>
+
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu">
+                    <svg class="hamburger-icon" viewBox="0 0 24 24">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-nav-overlay" id="mobileNav">
+            <a href="../../index.html#pricing" class="mobile-nav-link">Pricing</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <div style="margin-top: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3);">
+                <a href="login.html" class="btn btn-secondary btn-lg">Login</a>
+                <a href="signup.html" class="btn btn-primary btn-lg">Start Free</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="policy-hero">
+            <div class="container">
+                <div class="hero-badge" style="margin-bottom: var(--space-6);">
+                    🔒 Your Privacy Matters
+                </div>
+                <h1>Privacy Policy</h1>
+                <p>
+                    How we collect, use, and protect your personal information.
+                </p>
+            </div>
+        </section>
+
+        <!-- POLICY CONTENT -->
+        <section class="section">
+            <div class="container">
+                <div class="policy-content">
+
+                    <!-- Introduction -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">📋</span> Introduction</h2>
+                        <p>
+                            At Bloomeor, we take your privacy seriously. This Privacy Policy explains how we collect,
+                            use, disclose, and safeguard your information when you use our security monitoring services.
+                        </p>
+                        <p>
+                            By using Bloomeor's services, you agree to the collection and use of information in
+                            accordance with this policy. If you do not agree with our policies and practices, please do
+                            not use our
+                            services.
+                        </p>
+                    </div>
+
+                    <!-- Information We Collect -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">📊</span> Information We Collect</h2>
+
+                        <h3>Information You Provide</h3>
+                        <ul>
+                            <li>Account information (name, email address, company name)</li>
+                            <li>Payment and billing information</li>
+                            <li>Communication preferences</li>
+                            <li>Support requests and correspondence</li>
+                            <li>Feedback and survey responses</li>
+                        </ul>
+
+                        <h3>Information We Collect Automatically</h3>
+                        <ul>
+                            <li>Log data (IP addresses, browser type, operating system)</li>
+                            <li>Usage data (features used, time spent, interactions)</li>
+                            <li>Device information (device type, unique identifiers)</li>
+                            <li>Cookies and similar tracking technologies</li>
+                        </ul>
+
+                        <h3>Security Monitoring Data</h3>
+                        <ul>
+                            <li>Infrastructure and application security data you authorize us to monitor</li>
+                            <li>Vulnerability scan results</li>
+                            <li>Security alerts and incident data</li>
+                            <li>Configuration and compliance information</li>
+                        </ul>
+                    </div>
+
+                    <!-- How We Use Your Information -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">⚙️</span> How We Use Your Information</h2>
+                        <p>We use the information we collect to:</p>
+                        <ul>
+                            <li>Provide, maintain, and improve our security monitoring services</li>
+                            <li>Process transactions and send related information</li>
+                            <li>Send security alerts, updates, and administrative messages</li>
+                            <li>Respond to your comments, questions, and customer service requests</li>
+                            <li>Monitor and analyze trends, usage, and activities</li>
+                            <li>Detect, prevent, and address technical issues and security threats</li>
+                            <li>Comply with legal obligations and enforce our terms</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <p>🛡️ <strong>Important:</strong> We never use your security monitoring data for marketing
+                                purposes, demonstrations, or any purpose other than providing our services to you.</p>
+                        </div>
+                    </div>
+
+                    <!-- Data Sharing and Disclosure -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">🤝</span> Data Sharing and Disclosure</h2>
+                        <p>We do not sell your personal information. We may share your information only in the following
+                            circumstances:</p>
+
+                        <h3>Service Providers</h3>
+                        <p>
+                            We may share your information with third-party service providers who perform services on our
+                            behalf, such as payment processing, data hosting, and analytics. These providers are bound
+                            by
+                            contractual obligations to keep your information confidential.
+                        </p>
+
+                        <h3>Legal Requirements</h3>
+                        <p>
+                            We may disclose your information if required by law, court order, or governmental
+                            regulation,
+                            or if we believe disclosure is necessary to protect our rights, your safety, or the safety
+                            of others.
+                        </p>
+
+                        <h3>Business Transfers</h3>
+                        <p>
+                            In the event of a merger, acquisition, or sale of assets, your information may be
+                            transferred.
+                            We will notify you before your information is transferred and becomes subject to a different
+                            privacy policy.
+                        </p>
+                    </div>
+
+                    <!-- Data Security -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">🔐</span> Data Security</h2>
+                        <p>
+                            We implement appropriate technical and organizational measures to protect your personal
+                            information:
+                        </p>
+                        <ul>
+                            <li>Encryption in transit (TLS 1.3) and at rest (AES-256)</li>
+                            <li>Regular security audits and penetration testing</li>
+                            <li>Access controls and authentication requirements</li>
+                            <li>Secure data centers with SOC 2 compliance</li>
+                            <li>Employee training on data protection and privacy</li>
+                        </ul>
+                        <p>
+                            However, no method of transmission over the Internet or electronic storage is 100% secure.
+                            While we strive to protect your information, we cannot guarantee absolute security.
+                        </p>
+                    </div>
+
+                    <!-- Data Retention -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">⏱️</span> Data Retention</h2>
+                        <p>
+                            We retain your personal information for as long as necessary to provide our services and
+                            fulfill the purposes outlined in this policy. When you close your account, we will delete or
+                            anonymize your personal information within 90 days, unless we are required to retain it for
+                            legal or
+                            regulatory purposes.
+                        </p>
+                    </div>
+
+                    <!-- Your Rights -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">✊</span> Your Rights</h2>
+                        <p>Depending on your location, you may have the following rights:</p>
+                        <ul>
+                            <li><strong>Access:</strong> Request access to your personal information</li>
+                            <li><strong>Correction:</strong> Request correction of inaccurate information</li>
+                            <li><strong>Deletion:</strong> Request deletion of your personal information</li>
+                            <li><strong>Portability:</strong> Request a copy of your data in a portable format</li>
+                            <li><strong>Objection:</strong> Object to processing of your personal information</li>
+                            <li><strong>Restriction:</strong> Request restriction of processing</li>
+                            <li><strong>Withdraw Consent:</strong> Withdraw consent where processing is based on consent
+                            </li>
+                        </ul>
+                        <p>
+                            To exercise these rights, please contact us at privacy@Bloomeor.in. We will respond to your
+                            request within 30 days.
+                        </p>
+                    </div>
+
+                    <!-- Cookies and Tracking -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">🍪</span> Cookies and Tracking Technologies</h2>
+                        <p>
+                            We use cookies and similar tracking technologies to track activity on our service and hold
+                            certain information. You can instruct your browser to refuse all cookies or to indicate when
+                            a cookie is being sent.
+                        </p>
+                        <p>Types of cookies we use:</p>
+                        <ul>
+                            <li><strong>Essential Cookies:</strong> Required for the service to function</li>
+                            <li><strong>Analytics Cookies:</strong> Help us understand how visitors use our service</li>
+                            <li><strong>Preference Cookies:</strong> Remember your preferences and settings</li>
+                        </ul>
+                    </div>
+
+                    <!-- International Data Transfers -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">🌍</span> International Data Transfers</h2>
+                        <p>
+                            Your information may be transferred to and maintained on servers located outside of your
+                            country. We ensure that such transfers comply with applicable data protection laws and that
+                            your
+                            information receives an adequate level of protection.
+                        </p>
+                    </div>
+
+                    <!-- Children's Privacy -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">👶</span> Children's Privacy</h2>
+                        <p>
+                            Our services are not intended for individuals under the age of 18. We do not knowingly
+                            collect personal information from children. If you become aware that a child has provided us
+                            with
+                            personal information, please contact us, and we will take steps to delete such information.
+                        </p>
+                    </div>
+
+                    <!-- Changes to This Policy -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">📝</span> Changes to This Privacy Policy</h2>
+                        <p>
+                            We may update our Privacy Policy from time to time. We will notify you of any changes by
+                            posting the new Privacy Policy on this page and updating the "Last Updated" date. For
+                            material
+                            changes, we will provide additional notice (such as email notification).
+                        </p>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="policy-section">
+                        <h2><span class="section-icon">📞</span> Contact Us</h2>
+                        <p>
+                            If you have questions or concerns about this Privacy Policy, please contact us:
+                        </p>
+                        <div class="contact-box">
+                            <div class="contact-item">
+                                <div class="contact-icon">🔒</div>
+                                <div class="contact-details">
+                                    <strong>Privacy Team</strong>
+                                    <span>privacy@Bloomeor.in</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-details">
+                                    <strong>General Inquiries</strong>
+                                    <span>Bloomeor.in@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">📞</div>
+                                <div class="contact-details">
+                                    <strong>Phone</strong>
+                                    <span>+91 63618 97434</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">📍</div>
+                                <div class="contact-details">
+                                    <strong>Address</strong>
+                                    <span>Bloomeor Limited, Bangalore, India</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="last-updated">
+                        Last updated: February 4, 2026
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+                    <a href="../../index.html" class="logo">
+                        <img src="../images/logo/Bloomeor-logo.png" alt="Bloomeor" width="42" height="42">
+                        <span>Bloomeor</span>
+                    </a>
+                    <p>Security clarity for growing startups.</p>
+                    <div class="footer-contact">
+                        📧 Bloomeor.in@gmail.com<br>
+                        📞 +91 63618 97434
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <div class="footer-links">
+                        <a href="quick-check.html" class="footer-link">Quick Assessment</a>
+                        <a href="monitoring.html" class="footer-link">Continuous Monitoring</a>
+                        <a href="assessment.html" class="footer-link">Web & API Security</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html" class="footer-link">About Us</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                        <a href="careers.html" class="footer-link">Careers</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Trust</h4>
+                    <div class="footer-links">
+                        <span class="footer-link">🔒 Confidential by default</span>
+                        <span class="footer-link">🛡 SOC-aligned practices</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom"
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4);">
+                <span>© 2026 Bloomeor.in · All rights reserved</span>
+                <div class="theme-toggle-container">
+                    <span class="theme-label">Theme</span>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <span class="theme-toggle-track">
+                            <span class="theme-toggle-sun">☀️</span>
+                            <span class="theme-toggle-moon">🌙</span>
+                            <span class="theme-toggle-thumb"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const html = document.documentElement;
+        const header = document.querySelector('.header');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileNav.classList.toggle('active');
+                document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            });
+        }
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Header scroll effect
+        function updateHeaderStyles() {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            if (window.pageYOffset > 50) {
+                header.style.background = isDark ? 'rgba(15, 20, 25, 0.95)' : 'rgba(228, 235, 245, 0.95)';
+                header.style.boxShadow = isDark ? '0 4px 20px rgba(0, 0, 0, 0.5)' : '0 4px 20px rgba(163, 177, 198, 0.4)';
+            } else {
+                header.style.background = isDark ? 'rgba(15, 20, 25, 0.85)' : 'rgba(228, 235, 245, 0.85)';
+                header.style.boxShadow = 'none';
+            }
+        }
+        window.addEventListener('scroll', updateHeaderStyles, { passive: true });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        function getPreferredTheme() {
+            const saved = localStorage.getItem('Bloomeor-theme');
+            if (saved) return saved;
+            return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('Bloomeor-theme', theme);
+            updateHeaderStyles();
+        }
+        setTheme(getPreferredTheme());
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const current = html.getAttribute('data-theme') || 'light';
+                setTheme(current === 'light' ? 'dark' : 'light');
+            });
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '-50px' });
+
+        document.querySelectorAll('.policy-section').forEach((el, i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = `opacity 0.6s ease ${i * 0.05}s, transform 0.6s ease ${i * 0.05}s`;
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+
+</html>
+

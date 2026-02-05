@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Login - Bloomeor</title>
+    <meta name="description"
+        content="Sign in to your Bloomeor security dashboard to monitor your infrastructure and view security reports.">
+
+    <!-- CSP for Firebase -->
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    img-src 'self' https://raw.githubusercontent.com data:;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    script-src 'self' https://www.gstatic.com https://www.googletagmanager.com 'unsafe-inline';
+    connect-src https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://www.google-analytics.com;
+  ">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/logo/Bloomeor-logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Design System -->
+    <link rel="stylesheet" href="../assets/css/design-system.css">
+
+    <!-- Analytics -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-S0TYLD299S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-S0TYLD299S');
+    </script>
+    
+    
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ========== AUTH PAGE LAYOUT ========== */
+        .auth-page {
+            flex: 1;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #E8EFF9 0%, #E4EBF5 100%);
+        }
+
+        .auth-page::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(74, 144, 217, 0.1) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .auth-page::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(72, 187, 120, 0.08) 0%, transparent 70%);
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        [data-theme="dark"] .auth-page {
+            background: linear-gradient(180deg, #151B22 0%, #0F1419 100%);
+        }
+
+        .auth-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-6);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== AUTH CARD ========== */
+        .auth-card {
+            width: 100%;
+            max-width: 420px;
+            background: var(--bg-base);
+            border-radius: var(--radius-3xl);
+            padding: var(--space-10);
+            box-shadow: var(--neu-raised-lg);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: var(--space-8);
+        }
+
+        .auth-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-6);
+            text-decoration: none;
+        }
+
+        .auth-logo img {
+            width: 48px;
+            height: 48px;
+        }
+
+        .auth-logo span {
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .auth-header h1 {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+            color: var(--text-primary);
+        }
+
+        .auth-header p {
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+        }
+
+        /* ========== FORM STYLES ========== */
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-5);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .form-label {
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            font-size: var(--text-base);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            box-shadow: var(--neu-inset);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: var(--neu-inset), 0 0 0 3px rgba(74, 144, 217, 0.15);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .forgot-link {
+            display: block;
+            text-align: right;
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            margin-top: var(--space-1);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .forgot-link:hover {
+            color: var(--accent-primary);
+        }
+
+        /* ========== ERROR MESSAGE ========== */
+        .auth-error {
+            background: var(--danger-soft);
+            color: var(--danger);
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-sm);
+            text-align: center;
+            display: none;
+        }
+
+        .auth-error.visible {
+            display: block;
+        }
+
+        /* ========== DIVIDER ========== */
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin: var(--space-6) 0;
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-default);
+        }
+
+        /* ========== GOOGLE BUTTON ========== */
+        .btn-google {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-base);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-3);
+            cursor: pointer;
+            box-shadow: var(--neu-raised-sm);
+            transition: all 0.3s ease;
+        }
+
+        .btn-google:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--neu-raised);
+        }
+
+        .btn-google svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ========== AUTH FOOTER ========== */
+        .auth-footer {
+            text-align: center;
+            margin-top: var(--space-8);
+            font-size: var(--text-sm);
+            color: var(--text-muted);
+        }
+
+        .auth-footer a {
+            color: var(--accent-primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========== THEME TOGGLE ========== */
+        .theme-toggle-corner {
+            position: fixed;
+            bottom: var(--space-6);
+            right: var(--space-6);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-3);
+            background: var(--bg-base);
+            border-radius: var(--radius-full);
+            box-shadow: var(--neu-raised);
+            z-index: 100;
+        }
+
+        .theme-toggle {
+            position: relative;
+            width: 48px;
+            height: 24px;
+            padding: 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .theme-toggle-track {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-surface);
+            border-radius: var(--radius-full);
+            box-shadow: var(--neu-inset);
+            position: relative;
+        }
+
+        .theme-toggle-sun,
+        .theme-toggle-moon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+            z-index: 1;
+        }
+
+        .theme-toggle-sun {
+            left: 6px;
+            opacity: 1;
+        }
+
+        .theme-toggle-moon {
+            right: 6px;
+            opacity: 0.4;
+        }
+
+        .theme-toggle-thumb {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 18px;
+            height: 18px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-thumb {
+            transform: translateX(24px);
+        }
+
+        [data-theme="dark"] .theme-toggle-sun {
+            opacity: 0.4;
+        }
+
+        [data-theme="dark"] .theme-toggle-moon {
+            opacity: 1;
+        }
+
+        /* ========== TRUST BADGES ========== */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-6);
+            margin-top: var(--space-6);
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--border-default);
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 480px) {
+            .auth-card {
+                padding: var(--space-6);
+                border-radius: var(--radius-2xl);
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--space-2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="auth-page">
+        <div class="auth-container">
+            <div class="auth-card">
+
+                <div class="auth-header">
+                    <a href="../../index.html" class="auth-logo">
+                        <img src="../images/logo/Bloomeor-logo.png" alt="Bloomeor">
+                        <span>Bloomeor</span>
+                    </a>
+                    <h1>Welcome back</h1>
+                    <p>Sign in to access your security dashboard</p>
+                </div>
+
+                <div class="auth-error" id="error-message"></div>
+
+                <form class="auth-form" id="login-form">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email address</label>
+                        <input type="email" id="email" class="form-input" placeholder="you@company.com" required
+                            autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <input type="password" id="password" class="form-input" placeholder="••••••••" required
+                            autocomplete="current-password">
+                        <a href="forgot-password.html" class="forgot-link">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg" id="login-btn" style="width: 100%;">
+                        Sign in →
+                    </button>
+                </form>
+
+                <div class="auth-divider">or continue with</div>
+
+                <button type="button" class="btn-google" id="google-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                        <path fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                        <path fill="#FBBC05"
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                        <path fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                    </svg>
+                    Sign in with Google
+                </button>
+
+                <div class="auth-footer">
+                    Don't have an account? <a href="signup.html">Create one</a>
+                </div>
+
+                <div class="trust-badges">
+                    <span class="trust-badge">🔒 256-bit encryption</span>
+                    <span class="trust-badge">🛡️ SOC 2 aligned</span>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle-corner">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <span class="theme-toggle-track">
+                <span class="theme-toggle-sun">☀️</span>
+                <span class="theme-toggle-moon">🌙</span>
+                <span class="theme-toggle-thumb"></span>
+            </span>
+        </button>
+    </div>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+
+        function getPreferredTheme() {
+            const saved = localStorage.getItem('Bloomeor-theme');
+            if (saved) return saved;
+            return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            localStorage.setItem('Bloomeor-theme', theme);
+        }
+
+        setTheme(getPreferredTheme());
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const current = html.getAttribute('data-theme') || 'light';
+                setTheme(current === 'light' ? 'dark' : 'light');
+            });
+        }
+    </script>
+
+    <!-- Firebase Auth -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            GoogleAuthProvider,
+            signInWithPopup
+        } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDT9VPlwK-VwBwI_xVhGhHaut54UUYKmiQ",
+            authDomain: "Bloomeor-3ddee.firebaseapp.com",
+            projectId: "Bloomeor-3ddee",
+            appId: "1:214218519118:web:5d6de462ace844b9ca891f"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        const form = document.getElementById('login-form');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const errorEl = document.getElementById('error-message');
+        const loginBtn = document.getElementById('login-btn');
+        const googleBtn = document.getElementById('google-btn');
+
+        function showError(message) {
+            errorEl.textContent = message;
+            errorEl.classList.add('visible');
+        }
+
+        function hideError() {
+            errorEl.classList.remove('visible');
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideError();
+            loginBtn.textContent = 'Signing in...';
+            loginBtn.disabled = true;
+
+            try {
+                await signInWithEmailAndPassword(auth, emailInput.value.trim(), passwordInput.value);
+                window.location.href = 'dashboard.html';
+            } catch (error) {
+                showError('Invalid email or password. Please try again.');
+                loginBtn.textContent = 'Sign in →';
+                loginBtn.disabled = false;
+            }
+        });
+
+        googleBtn.addEventListener('click', async () => {
+            hideError();
+            try {
+                await signInWithPopup(auth, provider);
+                window.location.href = 'dashboard.html';
+            } catch (error) {
+                showError('Google sign-in failed. Please try again.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://secuvia.github.io/</loc></url>
-  <url><loc>https://secuvia.github.io/services.html</loc></url>
-  <url><loc>https://secuvia.github.io/blog.html</loc></url>
+  <url><loc>https://bloomeor.in/</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/about.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/monitoring.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/assessment.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/cloud-security.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/compliance.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/advisory.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/quick-check.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/book-demo.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/contact.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/careers.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/security-blog.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/trust.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/login.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/signup.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/privacy-policy.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/terms-of-service.html</loc></url>
+  <url><loc>https://bloomeor.in/main/Web/security-policy.html</loc></url>
 </urlset>
 

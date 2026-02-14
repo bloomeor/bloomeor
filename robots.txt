@@ -6,8 +6,51 @@
 ██████╔╝███████╗╚██████╔╝╚██████╔╝██║ ╚═╝ ██║███████╗╚██████╔╝██║  ██║
 ╚═════╝ ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝
                                                                       
-
-
+# Global Rules
 User-agent: *
 Allow: /
+
+# Disallow crawling of authentication & utility pages
+Disallow: /main/Web/login.html
+Disallow: /main/Web/signup.html
+Disallow: /main/Web/forgot-password.html
+Disallow: /main/Web/terms-of-service.html
+Disallow: /main/Web/privacy-policy.html
+
+# Block Aggressive SEO Bots & Scrapers to save bandwidth
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Explicitly Allow Major Search Engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap Location
 Sitemap: https://bloomeor.in/sitemap.xml
+
+
+

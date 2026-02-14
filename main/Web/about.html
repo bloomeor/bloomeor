@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO -->
-    <title>About Bloomeor  Security Built for Founders</title>
+    <title>About Bloomeor Security Built for Founders</title>
     <meta name="description"
         content="Learn about Bloomeor's mission to bring security clarity to growing startups. Founded by security practitioners, built for founders.">
     <meta name="keywords" content="about Bloomeor, security startup, cybersecurity India, founder security">
-    <meta property="og:title" content="About Bloomeor — Security Built for Founders">
+    <meta property="og:title" content="About Bloomeor Security Built for Founders">
     <meta property="og:description"
         content="Security clarity for growing startups. Founded by practitioners who understand the founder journey.">
     <meta property="og:type" content="website">
@@ -25,6 +25,7 @@
 
     <!-- Design System -->
     <link rel="stylesheet" href="../assets/css/design-system.css">
+    <link rel="stylesheet" href="../assets/css/page-styles.css">
 
     <!-- Analytics -->
     <script defer src="https://www.googletagmanager.com/gtag/js?id=G-S0TYLD299S"></script>
@@ -36,12 +37,12 @@
     </script>
 
     <style>
-        /* ========== HERO SECTION ========== */
+        /* ========== HERO SECTION (PREMIUM) ========== */
         .about-hero {
             position: relative;
             overflow: hidden;
             background: linear-gradient(180deg, #E8EFF9 0%, #E4EBF5 100%);
-            padding: clamp(10rem, 18vh, 14rem) 0 var(--space-16);
+            padding: clamp(10rem, 20vh, 16rem) 0 var(--space-16);
         }
 
         .about-hero::before {
@@ -49,10 +50,11 @@
             position: absolute;
             top: -20%;
             right: -15%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(74, 144, 217, 0.1) 0%, transparent 70%);
-            animation: float 8s ease-in-out infinite;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 144, 217, 0.12) 0%, transparent 70%);
+            animation: heroFloat 8s ease-in-out infinite;
+            pointer-events: none;
         }
 
         .about-hero::after {
@@ -60,13 +62,14 @@
             position: absolute;
             bottom: -20%;
             left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(56, 178, 172, 0.08) 0%, transparent 70%);
-            animation: float 10s ease-in-out infinite reverse;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(56, 178, 172, 0.1) 0%, transparent 70%);
+            animation: heroFloat 10s ease-in-out infinite reverse;
+            pointer-events: none;
         }
 
-        @keyframes float {
+        @keyframes heroFloat {
 
             0%,
             100% {
@@ -74,14 +77,50 @@
             }
 
             50% {
-                transform: translateY(-20px) rotate(3deg);
+                transform: translateY(-30px) rotate(3deg);
+            }
+        }
+
+        @keyframes subtlePulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shimmerSlide {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 800px;
+            max-width: 820px;
             margin: 0 auto;
             text-align: center;
         }
@@ -90,33 +129,53 @@
             display: inline-flex;
             align-items: center;
             gap: var(--space-2);
-            padding: var(--space-2) var(--space-4);
-            background: var(--bg-base);
+            padding: var(--space-2) var(--space-5);
+            background: var(--bg-surface);
             border-radius: var(--radius-full);
             box-shadow: var(--neu-raised-sm);
             font-size: var(--text-sm);
-            font-weight: 500;
+            font-weight: 600;
             color: var(--accent-primary);
-            margin-bottom: var(--space-6);
+            margin-bottom: var(--space-8);
+            border: 1px solid var(--border-subtle);
         }
 
         .hero-headline {
-            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1.08;
             margin-bottom: var(--space-6);
             color: var(--text-primary);
+            letter-spacing: -0.03em;
         }
 
         .hero-subheadline {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: clamp(1.05rem, 2.2vw, 1.3rem);
             color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
+            max-width: 620px;
+            margin: 0 auto var(--space-8);
+            line-height: 1.75;
         }
 
-        /* ========== STORY SECTION ========== */
+        /* Hero scroll-down indicator */
+        .hero-scroll-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2);
+            margin-top: var(--space-8);
+            color: var(--text-muted);
+            font-size: var(--text-xs);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-scroll-indicator svg {
+            animation: subtlePulse 2s ease-in-out infinite;
+        }
+
+        /* ========== STORY SECTION (PREMIUM) ========== */
         .story-section {
             background: var(--bg-base);
         }
@@ -124,38 +183,91 @@
         .story-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--space-12);
+            gap: var(--space-16);
             align-items: center;
         }
 
         .story-content h2 {
             margin-bottom: var(--space-6);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            letter-spacing: -0.02em;
         }
 
         .story-content p {
             font-size: var(--text-lg);
-            line-height: 1.8;
+            line-height: 1.85;
             color: var(--text-secondary);
             margin-bottom: var(--space-5);
         }
 
+        .story-highlight {
+            font-weight: 700;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+        }
+
         .story-visual {
-            background: var(--bg-base);
+            background: var(--bg-surface);
             border-radius: var(--radius-2xl);
             padding: var(--space-8);
             box-shadow: var(--neu-card);
+            border: 1px solid var(--border-subtle);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--teal-primary), var(--accent-primary));
+            background-size: 200% 100%;
+            animation: shimmerSlide 3s linear infinite;
+        }
+
+        .story-visual-title {
+            margin-bottom: var(--space-5);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .story-visual-title .icon-wrapper {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary-soft);
+            border-radius: var(--radius-lg);
+            font-size: 1.1rem;
         }
 
         .milestone-list {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .milestone-item {
             display: flex;
             gap: var(--space-4);
-            padding: var(--space-4) 0;
+            padding: var(--space-4) var(--space-3);
             border-bottom: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            transition: all 0.25s ease;
+        }
+
+        .milestone-item:hover {
+            background: var(--bg-hover);
+            transform: translateX(4px);
         }
 
         .milestone-item:last-child {
@@ -163,16 +275,24 @@
         }
 
         .milestone-year {
-            font-weight: 700;
+            font-weight: 800;
             color: var(--accent-primary);
-            min-width: 60px;
+            min-width: 56px;
+            font-size: var(--text-sm);
+            padding: var(--space-1) var(--space-2);
+            background: var(--accent-soft);
+            border-radius: var(--radius-md);
+            text-align: center;
+            height: fit-content;
         }
 
         .milestone-text {
             color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        /* ========== PRINCIPLES SECTION ========== */
+        /* ========== PRINCIPLES (PREMIUM) ========== */
         .principles-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -180,14 +300,15 @@
         }
 
         .principle-card {
-            padding: var(--space-8);
+            padding: var(--space-8) var(--space-6);
             text-align: center;
             position: relative;
             overflow: hidden;
             border: 1px solid transparent;
-            background: linear-gradient(var(--bg-base), var(--bg-base)) padding-box,
+            background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box,
                 linear-gradient(135deg, var(--accent-primary), var(--teal-primary)) border-box;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: var(--radius-2xl);
         }
 
         .principle-card::before {
@@ -202,18 +323,35 @@
             transition: opacity 0.3s ease;
         }
 
+        .principle-card::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74, 144, 217, 0.04) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
         .principle-card:hover::before {
             opacity: 1;
         }
 
+        .principle-card:hover::after {
+            opacity: 1;
+        }
+
         .principle-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--neu-card-hover), 0 20px 40px rgba(74, 144, 217, 0.15);
+            transform: translateY(-10px);
+            box-shadow: var(--neu-card-hover), 0 25px 50px rgba(74, 144, 217, 0.12);
         }
 
         .principle-icon {
-            width: 64px;
-            height: 64px;
+            width: 72px;
+            height: 72px;
             margin: 0 auto var(--space-5);
             padding: var(--space-4);
             background: linear-gradient(145deg, var(--bg-light), var(--bg-surface));
@@ -223,69 +361,183 @@
             align-items: center;
             justify-content: center;
             color: var(--accent-primary);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .principle-card:hover .principle-icon {
             background: linear-gradient(135deg, var(--accent-primary), var(--teal-primary));
             color: white;
-            transform: scale(1.1);
+            transform: scale(1.15) rotate(-5deg);
+            box-shadow: 0 8px 25px rgba(74, 144, 217, 0.35);
         }
 
         .principle-card h3 {
             font-size: var(--text-xl);
             margin-bottom: var(--space-3);
             color: var(--text-primary);
+            font-weight: 700;
         }
 
         .principle-card p {
             color: var(--text-muted);
             line-height: 1.7;
+            font-size: 0.95rem;
         }
 
-        /* ========== TEAM SECTION ========== */
+        /* ========== TEAM SECTION (PREMIUM) ========== */
+        .team-section-bg {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-base) 50%, var(--bg-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-section-bg::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
         .team-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-8);
-            max-width: 800px;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .team-card {
-            padding: var(--space-8);
+            padding: clamp(2rem, 4vw, 2.75rem) clamp(1.5rem, 3vw, 2.25rem);
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: var(--radius-2xl);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Top gradient accent line */
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--teal-primary), var(--accent-primary));
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--neu-card-hover);
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.15);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                0 0 60px rgba(56, 189, 248, 0.06);
+        }
+
+        .team-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Avatar with gradient ring */
+        .team-avatar-wrapper {
+            position: relative;
+            margin-bottom: var(--space-5);
+        }
+
+        .team-avatar-ring {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--teal-primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        .team-card:hover .team-avatar-ring {
+            box-shadow: 0 0 24px rgba(56, 189, 248, 0.3);
+            transform: scale(1.04);
         }
 
         .team-avatar {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto var(--space-4);
-            background: linear-gradient(135deg, var(--accent-primary), var(--teal-primary));
+            width: 90px;
+            height: 90px;
+            background: var(--bg-dark, #1a1f2e);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: var(--text-3xl);
+            font-size: var(--text-2xl);
+            font-weight: 700;
             color: white;
-            box-shadow: var(--neu-raised);
+            letter-spacing: 0.02em;
         }
 
-        .team-card h3 {
+        .team-card-info {
+            margin-bottom: var(--space-4);
+        }
+
+        .team-card-info h3 {
             font-size: var(--text-xl);
+            font-weight: 700;
             margin-bottom: var(--space-1);
+            line-height: 1.3;
         }
 
         .team-role {
             color: var(--accent-primary);
-            font-weight: 500;
-            margin-bottom: var(--space-3);
+            font-weight: 600;
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin: 0;
+        }
+
+        .founder-tag {
+            display: inline-block;
+            margin-top: var(--space-2);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #fbbf24;
+            background: rgba(251, 191, 36, 0.12);
+            padding: 3px 12px;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        .team-divider {
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--teal-primary));
+            margin: 0 auto var(--space-4);
+            border-radius: 2px;
+        }
+
+        .team-bio {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-5);
+            flex-grow: 1;
+            max-width: 340px;
         }
 
         .team-badges {
@@ -293,21 +545,98 @@
             justify-content: center;
             gap: var(--space-2);
             flex-wrap: wrap;
-            margin-top: var(--space-4);
         }
 
         .team-badge {
-            font-size: var(--text-xs);
-            padding: var(--space-1) var(--space-3);
-            background: var(--accent-soft);
+            font-size: 11px;
+            padding: 5px 14px;
+            background: rgba(56, 189, 248, 0.08);
             color: var(--accent-primary);
             border-radius: var(--radius-full);
-            font-weight: 500;
+            font-weight: 600;
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            transition: all 0.3s ease;
         }
 
-        /* ========== TRUST SECTION ========== */
+        .team-badge:hover {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Founder card */
+        .team-card-founder {
+            border-color: rgba(251, 191, 36, 0.1);
+        }
+
+        .team-card-founder:hover {
+            border-color: rgba(251, 191, 36, 0.2);
+        }
+
+        .team-card-founder::before {
+            background: linear-gradient(90deg, #fbbf24, var(--accent-primary), var(--teal-primary));
+        }
+
+        /* Portfolio link — ghost button */
+        .team-portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: var(--space-5);
+            padding: 10px 28px;
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--accent-primary);
+            background: transparent;
+            border: 1.5px solid rgba(56, 189, 248, 0.35);
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-portfolio-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent-primary), var(--teal-primary));
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            z-index: -1;
+        }
+
+        .team-portfolio-link:hover {
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(56, 189, 248, 0.25);
+        }
+
+        .team-portfolio-link:hover::before {
+            opacity: 1;
+        }
+
+        .team-portfolio-link svg {
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .team-portfolio-link:hover svg {
+            transform: translate(2px, -2px);
+        }
+
+        @media (max-width: 640px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+            }
+        }
+
+        /* ========== TRUST / STATS (PREMIUM) ========== */
         .trust-section {
             background: linear-gradient(180deg, var(--bg-base) 0%, var(--bg-dark) 50%, var(--bg-base) 100%);
+            position: relative;
         }
 
         .trust-stats {
@@ -319,21 +648,52 @@
 
         .stat-card {
             text-align: center;
-            padding: var(--space-6);
-            background: var(--bg-base);
-            border-radius: var(--radius-xl);
+            padding: var(--space-8) var(--space-6);
+            background: var(--bg-surface);
+            border-radius: var(--radius-2xl);
             box-shadow: var(--neu-card);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.35s ease;
         }
 
-        .stat-card h4 {
-            font-size: var(--text-3xl);
-            color: var(--accent-primary);
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--teal-primary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card:hover::after {
+            opacity: 1;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--neu-card-hover);
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-primary), var(--teal-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: var(--space-2);
+            line-height: 1.2;
         }
 
-        .stat-card p {
+        .stat-label {
             font-size: var(--text-sm);
             color: var(--text-muted);
+            font-weight: 500;
         }
 
         .trust-badges-grid {
@@ -345,40 +705,96 @@
         .trust-badge-card {
             padding: var(--space-6);
             text-align: center;
-            background: var(--bg-base);
-            border-radius: var(--radius-xl);
+            background: var(--bg-surface);
+            border-radius: var(--radius-2xl);
             box-shadow: var(--neu-raised-sm);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
         }
 
-        .trust-badge-card h4 {
-            font-size: var(--text-lg);
-            margin-bottom: var(--space-2);
+        .trust-badge-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--neu-card-hover);
+        }
+
+        .trust-badge-icon {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto var(--space-4);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: var(--space-2);
+            background: var(--gradient-primary-soft);
+            border-radius: var(--radius-xl);
+            font-size: 1.5rem;
         }
 
-        /* ========== CTA SECTION ========== */
+        .trust-badge-card h4 {
+            font-size: var(--text-base);
+            margin-bottom: var(--space-2);
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .trust-badge-card p {
+            color: var(--text-muted);
+            font-size: var(--text-sm);
+            line-height: 1.6;
+        }
+
+        /* ========== CTA SECTION (PREMIUM) ========== */
         .cta-section {
             text-align: center;
         }
 
         .cta-card {
-            background: var(--bg-base);
+            position: relative;
             border-radius: var(--radius-3xl);
             padding: var(--space-16) var(--space-8);
-            box-shadow: var(--neu-raised-lg);
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-base) 100%);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, var(--accent-primary), var(--teal-primary), transparent, transparent);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .cta-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 70%, rgba(74, 144, 217, 0.06) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .cta-card h2 {
             margin-bottom: var(--space-4);
+            position: relative;
+            z-index: 1;
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
         }
 
         .cta-card>p {
-            max-width: 500px;
+            max-width: 520px;
             margin: 0 auto var(--space-8);
             color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+            font-size: var(--text-lg);
+            line-height: 1.7;
         }
 
         .cta-buttons {
@@ -386,14 +802,18 @@
             justify-content: center;
             gap: var(--space-4);
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-reassurance {
             display: flex;
             justify-content: center;
             gap: var(--space-6);
-            margin-top: var(--space-6);
+            margin-top: var(--space-8);
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-reassurance span {
@@ -402,140 +822,7 @@
             gap: var(--space-2);
             font-size: var(--text-sm);
             color: var(--text-muted);
-        }
-
-        /* ========== MOBILE NAVIGATION ========== */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            cursor: pointer;
-            padding: var(--space-2);
-            z-index: calc(var(--z-fixed) + 2);
-        }
-
-        .hamburger-icon {
-            width: 24px;
-            height: 24px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-        }
-
-        .mobile-nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(228, 235, 245, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: calc(var(--z-fixed) + 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-6);
-            transform: translateY(-100%);
-            visibility: hidden;
-            transition: transform 0.5s ease, visibility 0.5s;
-        }
-
-        [data-theme="dark"] .mobile-nav-overlay {
-            background: rgba(26, 32, 44, 0.95);
-        }
-
-        .mobile-nav-overlay.active {
-            transform: translateY(0);
-            visibility: visible;
-        }
-
-        .mobile-nav-link {
-            font-size: var(--text-2xl);
-            font-weight: 700;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        /* ========== THEME TOGGLE ========== */
-        .theme-toggle-container {
-            display: flex;
-            align-items: center;
-            gap: var(--space-2);
-            padding: var(--space-2) var(--space-3);
-            background: var(--bg-base);
-            border-radius: var(--radius-full);
-            box-shadow: var(--neu-raised-sm);
-        }
-
-        .theme-label {
-            font-size: var(--text-xs);
             font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        .theme-toggle {
-            position: relative;
-            width: 48px;
-            height: 24px;
-            padding: 0;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-        }
-
-        .theme-toggle-track {
-            display: block;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-surface);
-            border-radius: var(--radius-full);
-            box-shadow: var(--neu-inset);
-            position: relative;
-        }
-
-        .theme-toggle-sun,
-        .theme-toggle-moon {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 10px;
-            z-index: 1;
-        }
-
-        .theme-toggle-sun {
-            left: 6px;
-            opacity: 1;
-        }
-
-        .theme-toggle-moon {
-            right: 6px;
-            opacity: 0.4;
-        }
-
-        .theme-toggle-thumb {
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            width: 18px;
-            height: 18px;
-            background: var(--gradient-accent);
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-
-        [data-theme="dark"] .theme-toggle-thumb {
-            transform: translateX(24px);
-        }
-
-        [data-theme="dark"] .theme-toggle-sun {
-            opacity: 0.4;
-        }
-
-        [data-theme="dark"] .theme-toggle-moon {
-            opacity: 1;
         }
 
         /* ========== DARK MODE OVERRIDES ========== */
@@ -544,13 +831,28 @@
         }
 
         [data-theme="dark"] .about-hero::before {
-            background: radial-gradient(circle, rgba(99, 179, 237, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(99, 179, 237, 0.08) 0%, transparent 70%);
+        }
+
+        [data-theme="dark"] .about-hero::after {
+            background: radial-gradient(circle, rgba(56, 178, 172, 0.06) 0%, transparent 70%);
+        }
+
+        [data-theme="dark"] .stat-card,
+        [data-theme="dark"] .trust-badge-card {
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="dark"] .cta-card {
+            background: linear-gradient(135deg, #151B22 0%, #0F1419 100%);
+            border-color: rgba(255, 255, 255, 0.06);
         }
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 1024px) {
             .story-grid {
                 grid-template-columns: 1fr;
+                gap: var(--space-8);
             }
 
             .principles-grid {
@@ -567,24 +869,13 @@
         }
 
         @media (max-width: 768px) {
-            .nav {
-                display: none;
-            }
-
-            .header-actions {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
             .principles-grid {
                 grid-template-columns: 1fr;
             }
 
             .team-grid {
                 grid-template-columns: 1fr;
+                max-width: 420px;
             }
 
             .trust-badges-grid {
@@ -600,6 +891,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .hero-scroll-indicator {
+                display: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -612,46 +907,50 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header" role="banner">
-        <div class="container">
-            <div class="header-inner">
-                <a href="../../index.html" class="logo" aria-label="Bloomeor Home">
-                    <img src="../images/logo/Bloomeor-logo.png" alt="Bloomeor" width="42" height="42">
-                    <span>Bloomeor</span>
+    <!-- ========== ULTRA-PREMIUM 'FLOATING ISLAND' HEADER ========== -->
+    <header class="header header-ultra-premium" role="banner" id="siteHeader">
+        <div class="header-island">
+            <div class="header-inner-island">
+
+                <a href="../../index.html" class="logo logo-ultra-premium" aria-label="Bloomeor Home">
+                    <div class="logo-icon-wrapper">
+                        <div class="logo-glow"></div>
+                        <img src="../images/logo/Bloomeor-logo.png" alt="Bloomeor" loading="lazy" width="54"
+                            height="54">
+                    </div>
+                    <span class="logo-text-ultra">Bloomeor</span>
                 </a>
 
-                <nav class="nav" role="navigation">
-                    <a href="../../index.html#how-it-works" class="nav-link">How It Works</a>
-                    <a href="../../index.html#pricing" class="nav-link">Pricing</a>
-                    <a href="about.html" class="nav-link active">About</a>
-                    <a href="contact.html" class="nav-link">Contact</a>
+                <nav class="nav nav-ultra" role="navigation" aria-label="Main navigation">
+                    <div class="nav-magnetic-indicator"></div>
+                    <a href="../../index.html#how-it-works" class="nav-link-ultra"><span>How It Works</span></a>
+                    <a href="../../index.html#pricing" class="nav-link-ultra"><span>Pricing</span></a>
+                    <a href="../../index.html#visibility" class="nav-link-ultra"><span>Dashboard</span></a>
+                    <a href="about.html" class="nav-link-ultra"><span>About</span></a>
                 </nav>
 
-                <div class="header-actions">
-                    <a href="login.html" class="btn btn-ghost">Sign In</a>
-                    <a href="signup.html" class="btn btn-primary">Get Free Audit</a>
+                <div class="header-actions-ultra">
+                    <a href="login.html" class="btn-ultra btn-ghost-ultra">Sign In</a>
+                    <div class="cta-ultra-wrapper">
+                        <a href="signup.html" class="btn-ultra btn-primary-ultra">
+                            <span class="btn-content">Get Free Audit</span>
+                            <div class="btn-shimmer-container">
+                                <div class="liquid-shimmer"></div>
+                            </div>
+                        </a>
+                        <span class="badge-ultra-free">FREE</span>
+                    </div>
+
+                    <!-- Mobile Toggle Integrated -->
+                    <button class="mobile-menu-toggle-premium" id="mobileMenuToggle" aria-label="Open menu">
+                        <svg class="hamburger-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <line class="line-top" x1="3" y1="12" x2="21" y2="12"></line>
+                            <line class="line-mid" x1="3" y1="6" x2="21" y2="6"></line>
+                            <line class="line-bot" x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
                 </div>
 
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu">
-                    <svg class="hamburger-icon" viewBox="0 0 24 24">
-                        <line class="line-top" x1="3" y1="12" x2="21" y2="12"></line>
-                        <line class="line-mid" x1="3" y1="6" x2="21" y2="6"></line>
-                        <line class="line-bot" x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Nav Overlay -->
-        <div class="mobile-nav-overlay" id="mobileNav">
-            <a href="../../index.html#how-it-works" class="mobile-nav-link">How It Works</a>
-            <a href="../../index.html#pricing" class="mobile-nav-link">Pricing</a>
-            <a href="about.html" class="mobile-nav-link">About</a>
-            <a href="contact.html" class="mobile-nav-link">Contact</a>
-            <div style="margin-top: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3);">
-                <a href="login.html" class="btn btn-secondary btn-lg">Sign In</a>
-                <a href="signup.html" class="btn btn-primary btn-lg">Get Free Audit</a>
             </div>
         </div>
     </header>
@@ -673,6 +972,13 @@
                         We understand the startup journey. Growing fast shouldn't mean growing vulnerable.
                         Bloomeor brings clarity to security without the enterprise noise.
                     </p>
+                    <div class="hero-scroll-indicator animate-fadeInUp stagger-3">
+                        <span>Scroll to explore</span>
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </section>
@@ -692,13 +998,16 @@
                             We built Bloomeor for the reality in between clear visibility, honest assessments,
                             and actionable guidance that respects your time and resources.
                         </p>
-                        <p style="font-weight: 600; color: var(--text-primary);">
+                        <p class="story-highlight">
                             No fear-selling. No checkbox security. Just clarity.
                         </p>
                     </div>
 
                     <div class="story-visual">
-                        <h3 style="margin-bottom: var(--space-4); font-size: var(--text-lg);">Our Journey</h3>
+                        <div class="story-visual-title">
+                            <span class="icon-wrapper">🚀</span>
+                            Our Journey
+                        </div>
                         <ul class="milestone-list">
                             <li class="milestone-item">
                                 <span class="milestone-year">2023</span>
@@ -772,7 +1081,7 @@
         </section>
 
         <!-- TEAM -->
-        <section class="section" style="background: var(--bg-surface);">
+        <section class="section team-section-bg">
             <div class="container">
                 <div class="section-header">
                     <h2>The people behind Bloomeor</h2>
@@ -780,33 +1089,57 @@
                 </div>
 
                 <div class="team-grid">
-                    <div class="card team-card">
-                        <div class="team-avatar">P</div>
-                        <h3>Purushotham.R</h3>
-                        <p class="team-role">Founder & Security Researcher</p>
-                        <p style="font-size: var(--text-sm); color: var(--text-muted);">
+                    <div class="card team-card team-card-founder">
+                        <div class="team-avatar-wrapper">
+                            <div class="team-avatar-ring">
+                                <div class="team-avatar">P</div>
+                            </div>
+                        </div>
+                        <div class="team-card-info">
+                            <h3>Purushotham.R</h3>
+                            <p class="team-role">Founder & Security Researcher</p>
+                            <span class="founder-tag">★ Founder</span>
+                        </div>
+                        <div class="team-divider"></div>
+                        <p class="team-bio">
                             Security researcher passionate about finding vulnerabilities before attackers do.
                             Making cybersecurity simple for startups around the world.
                         </p>
                         <div class="team-badges">
                             <span class="team-badge">Security Researcher</span>
-
-                            <span class="team-badge">Farmer 🌾 </span>
+                            <span class="team-badge">Farmer 🌾</span>
                             <span class="team-badge">ECE Engineer</span>
                         </div>
+                        <a href="https://purushothamr01.github.io/purushotham/" class="team-portfolio-link"
+                            target="_blank" rel="noopener">
+                            View Portfolio
+                            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </a>
                     </div>
 
                     <div class="card team-card">
-                        <div class="team-avatar">S</div>
-                        <h3>Security Team</h3>
-                        <p class="team-role">Expert Practitioners</p>
-                        <p style="font-size: var(--text-sm); color: var(--text-muted);">
+                        <div class="team-avatar-wrapper">
+                            <div class="team-avatar-ring">
+                                <div class="team-avatar">S</div>
+                            </div>
+                        </div>
+                        <div class="team-card-info">
+                            <h3>Security Team</h3>
+                            <p class="team-role">Expert Practitioners</p>
+                        </div>
+                        <div class="team-divider"></div>
+                        <p class="team-bio">
                             Seasoned security professionals from top tech companies.
                             Real-world experience protecting millions of users.
                         </p>
                         <div class="team-badges">
                             <span class="team-badge">Ex-Enterprise</span>
                             <span class="team-badge">VAPT Experts</span>
+                            <span class="team-badge">Certified Professionals</span>
                         </div>
                     </div>
                 </div>
@@ -823,38 +1156,38 @@
 
                 <div class="trust-stats">
                     <div class="stat-card">
-                        <h4>25+</h4>
-                        <p>Startups secured</p>
+                        <div class="stat-number">25+</div>
+                        <p class="stat-label">Startups secured</p>
                     </div>
                     <div class="stat-card">
-                        <h4>500+</h4>
-                        <p>Threats neutralized</p>
+                        <div class="stat-number">500+</div>
+                        <p class="stat-label">Threats neutralized</p>
                     </div>
                     <div class="stat-card">
-                        <h4>&lt;4 hrs</h4>
-                        <p>Response time</p>
+                        <div class="stat-number">&lt;4 hrs</div>
+                        <p class="stat-label">Response time</p>
                     </div>
                     <div class="stat-card">
-                        <h4>Zero</h4>
-                        <p>Client breaches</p>
+                        <div class="stat-number">Zero</div>
+                        <p class="stat-label">Client breaches</p>
                     </div>
                 </div>
 
                 <div class="trust-badges-grid">
                     <div class="trust-badge-card">
-                        <h4>🛡️ SOC 2 Aligned</h4>
-                        <p style="color: var(--text-muted); font-size: var(--text-sm);">Processes designed to support
-                            SOC 2 readiness.</p>
+                        <div class="trust-badge-icon">🛡️</div>
+                        <h4>SOC 2 Aligned</h4>
+                        <p>Processes designed to support SOC 2 readiness.</p>
                     </div>
                     <div class="trust-badge-card">
-                        <h4>📋 Responsible Disclosure</h4>
-                        <p style="color: var(--text-muted); font-size: var(--text-sm);">Clear, ethical vulnerability
-                            reporting standards.</p>
+                        <div class="trust-badge-icon">📋</div>
+                        <h4>Responsible Disclosure</h4>
+                        <p>Clear, ethical vulnerability reporting standards.</p>
                     </div>
                     <div class="trust-badge-card">
-                        <h4>🔒 Confidential by Default</h4>
-                        <p style="color: var(--text-muted); font-size: var(--text-sm);">Customer data never used for
-                            marketing.</p>
+                        <div class="trust-badge-icon">🔒</div>
+                        <h4>Confidential by Default</h4>
+                        <p>Customer data never used for marketing.</p>
                     </div>
                 </div>
             </div>
@@ -904,60 +1237,134 @@
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- ========== FOOTER ========== -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-nav"
-                style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: var(--space-8); margin-bottom: var(--space-12);">
-                <div class="footer-brand">
-                    <a href="../../index.html" class="logo">
-                        <img src="../images/logo/Bloomeor-logo.png" alt="Bloomeor" width="42" height="42">
-                        <span>Bloomeor</span>
-                    </a>
-                    <p
-                        style="color: var(--text-muted); font-size: var(--text-sm); margin-top: var(--space-4); max-width: 280px;">
-                        Security that speaks your language. Built by founders, for founders.
-                    </p>
-                    <p style="font-size: var(--text-xs); color: var(--text-muted); margin-top: var(--space-2);">
-                        🇮🇳 Made in India · Trusted globally
-                    </p>
-                </div>
+        <div class="container container-lg">
 
-                <div class="footer-column">
-                    <h4
-                        style="font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-4); text-transform: uppercase; letter-spacing: 0.05em;">
-                        Services</h4>
-                    <div class="footer-links">
-                        <a href="monitoring.html" class="footer-link">Continuous Monitoring</a>
-                        <a href="assessment.html" class="footer-link">Security Assessment</a>
-                        <a href="cloud-security.html" class="footer-link">Cloud Security</a>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h4
-                        style="font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-4); text-transform: uppercase; letter-spacing: 0.05em;">
-                        Company</h4>
-                    <div class="footer-links">
-                        <a href="about.html" class="footer-link">About Us</a>
-                        <a href="contact.html" class="footer-link">Contact</a>
-                        <a href="careers.html" class="footer-link">Careers</a>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h4
-                        style="font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-4); text-transform: uppercase; letter-spacing: 0.05em;">
-                        Legal</h4>
-                    <div class="footer-links">
-                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
-                        <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+            <!-- Newsletter/Trust Banner (PREMIUM) -->
+            <div class="newsletter-section-premium">
+                <div class="newsletter-card-premium">
+                    <div class="newsletter-glow-effect"></div>
+                    <div class="newsletter-gradient-border">
+                        <div class="newsletter-inner">
+                            <div class="newsletter-header">
+                                <div class="newsletter-badge">
+                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>Join 500+ security-conscious founders</span>
+                                </div>
+                                <h3 class="newsletter-title">Get weekly security insights. No spam. Unsubscribe anytime.
+                                </h3>
+                            </div>
+                            <form class="newsletter-form-premium" id="newsletterForm">
+                                <div class="form-group-premium">
+                                    <input type="email" id="newsletter-email" class="form-input-premium" placeholder=" "
+                                        required autocomplete="email">
+                                    <label for="newsletter-email" class="form-label-premium">your@email.com</label>
+                                    <div class="input-underline"></div>
+                                </div>
+                                <button type="submit" class="btn-newsletter-premium" id="newsletterBtn">
+                                    <span>Subscribe Free</span>
+                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                        stroke-width="2.5" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </button>
+                            </form>
+                            <div class="newsletter-trust">
+                                <div class="trust-item-inline">
+                                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>No credit card</span>
+                                </div>
+                                <div class="trust-separator"></div>
+                                <div class="trust-item-inline">
+                                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                        stroke-width="2.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                    <span>Privacy guaranteed</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="footer-bottom"
-                style="padding-top: var(--space-8); border-top: 1px solid var(--border-default); text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--space-4);">
+            <div class="footer-nav footer-nav-premium">
+                <div class="footer-brand footer-brand-premium">
+                    <a href="../../index.html" class="logo logo-premium">
+                        <img src="../images/logo/Bloomeor-logo.png" alt="Bloomeor" loading="lazy" width="42"
+                            height="42">
+                        <span>Bloomeor</span>
+                    </a>
+                    <p class="brand-description">Security that speaks your language. Built by founders, for founders.
+                    </p>
+                    <p class="brand-location">🇮🇳 Made in India · Trusted globally</p>
+                    <div class="social-icons social-icons-premium">
+                        <a href="https://linkedin.com/company/bloomeor" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn" class="social-icon-premium linkedin"><svg viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg></a>
+                        <a href="https://twitter.com/bloomeor" target="_blank" rel="noopener noreferrer"
+                            aria-label="Twitter / X" class="social-icon-premium twitter"><svg viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg></a>
+                        <a href="mailto:hello@bloomeor.in" aria-label="Email us"
+                            class="social-icon-premium instagram"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <div class="footer-column footer-column-premium">
+                    <h4>SOLUTIONS</h4>
+                    <div class="footer-links">
+                        <a href="monitoring.html" class="footer-link footer-link-premium"><span>Attack Surface
+                                Monitoring</span></a>
+                        <a href="assessment.html" class="footer-link footer-link-premium"><span>Penetration
+                                Testing</span></a>
+                        <a href="compliance.html" class="footer-link footer-link-premium"><span>Compliance
+                                Support</span></a>
+                    </div>
+                </div>
+
+                <div class="footer-column footer-column-premium">
+                    <h4>COMPANY</h4>
+                    <div class="footer-links">
+                        <a href="about.html" class="footer-link footer-link-premium"><span>About Us</span></a>
+                        <a href="contact.html" class="footer-link footer-link-premium"><span>Contact</span></a>
+                        <a href="careers.html" class="footer-link footer-link-premium"><span>Careers</span></a>
+                    </div>
+                </div>
+
+                <div class="footer-column footer-column-premium">
+                    <h4>LEGAL</h4>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html" class="footer-link footer-link-premium"><span>Privacy
+                                Policy</span></a>
+                        <a href="terms-of-service.html" class="footer-link footer-link-premium"><span>Terms of
+                                Service</span></a>
+                        <a href="security-policy.html" class="footer-link footer-link-premium"><span>Security
+                                Policy</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
                 <div class="theme-toggle-container">
                     <span class="theme-label">Theme</span>
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -968,87 +1375,172 @@
                         </span>
                     </button>
                 </div>
-                <p style="color: var(--text-muted); font-size: var(--text-sm);">© 2026 Bloomeor. Protecting startups, one
-                    vulnerability at a time.</p>
+                <p>© 2026 Bloomeor. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <!-- Premium Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay-ultra" id="mobileNav">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-orb mobile-nav-orb-1" aria-hidden="true"></div>
+            <div class="mobile-nav-orb mobile-nav-orb-2" aria-hidden="true"></div>
+
+            <div class="mobile-nav-header">
+                <div class="mobile-nav-brand">
+                    <img src="../images/logo/Bloomeor-logo.png" alt="" width="36" height="36" loading="lazy">
+                    <span class="mobile-nav-logo-text">Bloomeor</span>
+                </div>
+                <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mobile-nav-accent-bar" aria-hidden="true"></div>
+
+            <nav class="mobile-links-ultra" aria-label="Mobile navigation">
+                <a href="../../index.html#how-it-works" class="mobile-link-item mobile-link-anim"
+                    style="--anim-order: 0;">
+                    <div class="mobile-link-text"><span class="mobile-link-title">How It Works</span><span
+                            class="mobile-link-desc">Our process</span></div>
+                </a>
+                <a href="../../index.html#pricing" class="mobile-link-item mobile-link-anim" style="--anim-order: 1;">
+                    <div class="mobile-link-text"><span class="mobile-link-title">Pricing</span><span
+                            class="mobile-link-desc">Plans from ₹9,999/mo</span></div>
+                </a>
+                <a href="about.html" class="mobile-link-item mobile-link-anim" style="--anim-order: 2;">
+                    <div class="mobile-link-text"><span class="mobile-link-title">About Us</span><span
+                            class="mobile-link-desc">Our Team</span></div>
+                </a>
+                <a href="contact.html" class="mobile-link-item mobile-link-anim" style="--anim-order: 3;">
+                    <div class="mobile-link-text"><span class="mobile-link-title">Contact</span><span
+                            class="mobile-link-desc">Get in touch</span></div>
+                </a>
+            </nav>
+
+            <div class="mobile-actions-ultra">
+                <a href="signup.html" class="mobile-cta-primary mobile-link-anim" style="--anim-order: 4;">Get Free
+                    Security Audit</a>
+                <a href="https://wa.me/916361897434" class="mobile-cta-whatsapp mobile-link-anim"
+                    style="--anim-order: 5;" target="_blank">Chat on WhatsApp</a>
+            </div>
+            <div class="mobile-nav-footer">
+                <button class="mobile-theme-toggle" id="mobileThemeToggle">Toggle Theme ☀️/🌙</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
-        // ========== HEADER & MOBILE MENU ==========
-        const header = document.querySelector('.header');
-        const html = document.documentElement;
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileNav = document.getElementById('mobileNav');
+        (function () {
+            // Header Scroll Logic
+            let lastScrollY = window.scrollY;
+            const header = document.getElementById('siteHeader');
+            const scrollThreshold = 100;
+            const html = document.documentElement;
 
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileNav.classList.toggle('active');
-                document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-            });
-        }
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > 50) header.classList.add('compact');
+                else header.classList.remove('compact');
+                if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) header.classList.add('hide');
+                else header.classList.remove('hide');
+                lastScrollY = currentScrollY;
+            }, { passive: true });
 
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
+            // Mobile Menu Logic (Deferred)
+            document.addEventListener('DOMContentLoaded', () => {
+                const toggle = document.getElementById('mobileMenuToggle');
+                const closeBtn = document.getElementById('mobileCloseBtn');
+                const overlay = document.getElementById('mobileNav');
+                const mobileThemeToggle = document.getElementById('mobileThemeToggle');
 
-        // Header scroll effect
-        function updateHeaderStyles() {
-            const isDark = html.getAttribute('data-theme') === 'dark';
-            if (window.pageYOffset > 50) {
-                header.style.background = isDark ? 'rgba(15, 20, 25, 0.95)' : 'rgba(228, 235, 245, 0.95)';
-                header.style.boxShadow = isDark ? '0 4px 20px rgba(0, 0, 0, 0.5)' : '0 4px 20px rgba(163, 177, 198, 0.4)';
-            } else {
-                header.style.background = isDark ? 'rgba(15, 20, 25, 0.85)' : 'rgba(228, 235, 245, 0.85)';
-                header.style.boxShadow = 'none';
-            }
-        }
-        window.addEventListener('scroll', updateHeaderStyles, { passive: true });
+                if (toggle && overlay && closeBtn) {
+                    toggle.addEventListener('click', () => { overlay.classList.add('active'); document.body.style.overflow = 'hidden'; });
+                    closeBtn.addEventListener('click', () => { overlay.classList.remove('active'); document.body.style.overflow = ''; });
+                    overlay.addEventListener('click', (e) => { if (e.target === overlay) { overlay.classList.remove('active'); document.body.style.overflow = ''; } });
+                }
 
-        // ========== THEME TOGGLE ==========
-        const themeToggle = document.getElementById('themeToggle');
+                // Mobile Theme Toggle
+                if (mobileThemeToggle) {
+                    mobileThemeToggle.addEventListener('click', () => {
+                        const newTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                        setTheme(newTheme);
+                    });
+                }
 
-        function getPreferredTheme() {
-            const saved = localStorage.getItem('Bloomeor-theme');
-            if (saved) return saved;
-            return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
-
-        function setTheme(theme) {
-            html.setAttribute('data-theme', theme);
-            localStorage.setItem('Bloomeor-theme', theme);
-            updateHeaderStyles();
-        }
-
-        setTheme(getPreferredTheme());
-
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const current = html.getAttribute('data-theme') || 'light';
-                setTheme(current === 'light' ? 'dark' : 'light');
-            });
-        }
-
-        // ========== SCROLL ANIMATIONS ==========
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    observer.unobserve(entry.target);
+                // Newsletter Handler
+                const form = document.getElementById('newsletterForm');
+                if (form) {
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const btn = document.getElementById('newsletterBtn');
+                        const original = btn.innerHTML;
+                        btn.innerHTML = '<span>Subscribed!</span>';
+                        btn.style.background = 'var(--success)';
+                        setTimeout(() => { btn.innerHTML = original; btn.style.background = ''; form.reset(); }, 2000);
+                    });
                 }
             });
-        }, { threshold: 0.1, rootMargin: '-50px' });
 
-        document.querySelectorAll('.card, .stat-card, .trust-badge-card, .milestone-item').forEach((el, i) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
-            observer.observe(el);
-        });
+            // Theme Toggle Logic
+            const themeToggle = document.getElementById('themeToggle');
+            const getPreferredTheme = () => localStorage.getItem('Bloomeor-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            const setTheme = (theme) => { html.setAttribute('data-theme', theme); localStorage.setItem('Bloomeor-theme', theme); };
+
+            setTheme(getPreferredTheme());
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const newTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                    setTheme(newTheme);
+                });
+            }
+
+            // Back to Top
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    backToTopBtn.classList.toggle('visible', window.pageYOffset > 300);
+                });
+                backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            }
+
+            // Scroll Reveal Animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '-50px' });
+
+            document.querySelectorAll('.card, .stat-card, .trust-badge-card, .milestone-item').forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
+                observer.observe(el);
+            });
+
+            // Footer column reveal
+            document.querySelectorAll('.footer-column, .footer-brand').forEach((el, i) => {
+                el.style.transition = `opacity 0.6s ease ${i * 0.15}s, transform 0.6s ease ${i * 0.15}s`;
+                observer.observe(el);
+            });
+        })();
     </script>
 
 </body>
